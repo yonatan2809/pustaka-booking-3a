@@ -6,11 +6,15 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
-		echo "<h1> Perkenalan </h1>";
-		echo " Nama : Yonatan Arif Setiawan Sutrisno <br>
-			Tempat Lahir : Bekasi <br>
-			Tanggal Lahir : 28 September 2002 <br>
-			Tempat Tinggal : Griya Timur Indah Blok C2/5 <br>
-			Motivation Kuliah : Memperluas pengetahuan dan membuka wawasan";
+		$this->load->view('view-form-matakuliah');
+
+	}
+	public function penjumlahan($n1, $n2)
+	{
+		$this->load->model('Model_latihan1');
+		$hasil = $this->Model_latihan1->jumlah ($n1, $n2);
+		echo"Hasil Penjumlahan dari " . "+" . $n2 . "=" . $hasil;
+
+		$this->load->view('view-latihan', $hasil);
 	}
 }
